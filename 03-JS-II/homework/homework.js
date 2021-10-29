@@ -47,7 +47,7 @@ function saludo(idioma) {
   } else if (idioma == 'mandarin'){
     return 'Ni Hao!';
   } else if (idioma == 'ingles'){
-    return 'Hello';
+    return 'Hello!';
   } return 'Hola!';
 }
 
@@ -86,9 +86,9 @@ function estaEnRango(numero) {
   // Devuelve "true" si "numero" es menor que 50 y mayor que 20
   // De lo contrario, devuelve "false"
   // Tu código:
-  if (numero<50 & numero>200){
+  if (numero<50 && numero>20){
     return true;
-  } return false;
+  } else return false;
 }
 
 function esEntero(numero) {
@@ -97,7 +97,7 @@ function esEntero(numero) {
   // Ejemplo: 1 -> true
   // Ejemplo: -10 -> true
   // De lo contrario, devuelve "false"
-  // Pista: Puedes resolver esto usando `Math.floor`
+  // Pista: Puedes resolver esto usando `Math.floor`  if (numero - Math.floor(numero) === 0)
   // Tu código:
     if (numero % 1 === 0){
      return true;
@@ -125,15 +125,17 @@ function operadoresLogicos(num1, num2, num3) {
   //Si num3 es más grande que num1 y num2, aumentar su valor en 1 y retornar el nuevo valor.
   //0 no es ni positivo ni negativo. Si alguno de los argumentos es 0, retornar "Error".
   //Si no se cumplen ninguna de las condiciones anteriores, retornar false. 
-  if (num1>0 & num1>num2 & num1>num3){
-    return 'Numero 1 es mayor y positivo';
-  } else if(num1<0 || num2<0 || num3<0){
-    return 'Hay negativos';
-  } else if (num3>num1 & num3>num2){
-    return num3 + 1;
-  } else if(num1===num2===num3===0){
+    if(num1===0 || num2===0 || num3===0){
     return 'Error';
-  } return false;
+  } else if(num1<0 || num2<0 || num3<0){
+      return 'Hay negativos';
+  } else if (num1>0 && num1>num2 && num1>num3){
+    return 'Número 1 es mayor y positivo';
+  } else if (num3>num1 & num3>num2){
+    num3 = num3 + 1;
+    return num3;
+  } 
+   return false;
 }
 
 function esPrimo(numero) {
@@ -145,10 +147,10 @@ function esPrimo(numero) {
   if (numero<=2){
     return false;
   } for (var i=2; i < numero; i++){
-    if (numero % 2 === 0){
-      return false;
-    } return true;
-  }
+    if (numero % i === 0){
+    return false;
+    } 
+  } return true;
 }
 
 function esVerdadero(valor){
@@ -157,9 +159,7 @@ function esVerdadero(valor){
   //Escribe tu código aquí
 if (valor === true){
   return 'Soy verdadero';
-} else if (valor === false){
-  return false;
-}
+} return 'Soy falso';
 }
 
 function tablaDelSeis(){
@@ -175,9 +175,11 @@ function tablaDelSeis(){
 
 function tieneTresDigitos(numero){
   //Leer un número entero y retornar true si tiene 3 dígitos. Caso contrario, retorna false.
-  //Escribe tu código aquí
-   numero.length(3)
-}
+  //Escribe tu código aquí ////// .length seria es solo para string y array no para numeros
+   if (numero>99 && numero<1000){
+     return true;
+   } return false;
+  }
 
 function doWhile(numero) {
   //Implementar una función tal que vaya aumentando el valor recibido en 5 hasta un límite de 8 veces
