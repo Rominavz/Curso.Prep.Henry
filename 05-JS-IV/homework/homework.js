@@ -36,16 +36,11 @@ function invocarMetodo(objeto, metodo) {
   }
 
 function multiplicarNumeroDesconocidoPorCinco(objetoMisterioso) {
-  // "objetoMisterioso" tiene una propiedad llamada "numeroMisterioso"
+  // "objetoMisterioso" tiene una propiedad llamada "numeroMisterioso"   puedo usar . porque se llama exacta/ numeroMisterioso 
   // Multiplica el numeroMisterioso por 5 y devuelve el producto
   // Tu código:
-  const objeto = {
-    objetoMisterioso: 'numeroMisterioso',
-    Multipica: function(){
-      console.log(numeroMisterioso * 5);
-    }
-  }
-
+  return objetoMisterioso.numeroMisterioso * 5;
+    
 }
 
 function eliminarPropiedad(objeto, unaPropiedad) {
@@ -74,10 +69,10 @@ function tieneEmail(usuario) {
   // Devuelve "true" si el usuario tiene un valor definido para la propiedad "email"
   // De lo contratio, devuelve "false"
   // Tu código:
-  if (usuario.email == undefined){
-    return false;
-  }
+  if (usuario.email !== undefined && usuario.email !== null){
     return true;
+  }
+    return false;
 }
 
 
@@ -87,10 +82,7 @@ function tienePropiedad(objeto, propiedad) {
   // "propiedad" es un string
   // De lo contrario, devuelve "false"
   // Tu código:
-  if (objeto.propiedad == "propiedad"){    //noooo
-    return true;
-  }
-   return false;
+  return objeto.hasOwnProperty(propiedad);
 }
 
 function verificarPassword(usuario, password) {
@@ -105,7 +97,7 @@ function verificarPassword(usuario, password) {
 }
 
 function actualizarPassword(usuario, nuevaPassword) {
-  // Reemplaza la contraseña existente en el objeto "usuario" con el valor de "nuevagPassword"
+  // Reemplaza la contraseña existente en el objeto "usuario" con el valor de "nuevaPassword"
   // Devuelve el objeto
   // Tu código:
   usuario.password = nuevaPassword;
@@ -134,18 +126,17 @@ function pasarUsuarioAPremium(usuarios) {
 }
 
 function sumarLikesDeUsuario(usuario) {
-  // "usuario" tiene una propiedad llamada "posts" que es un array
+  // "usuario" tiene una propiedad llamada "posts" que es un array    usuario{ posts {}{}{}}
   // "posts" es un array de objetos "post"
   // Cada objeto "post" tiene una propiedad llamada "likes" que es un entero (int/integer)
   // Suma todos los likes de todos los objetos "post"
   // Devuelve la suma
   // Tu código:
-    usuario.posts.post.likes = 5
-    var suma=0;                               
-  for (var i=0; i < posts.length; i++){
-  suma = suma + usuario.posts[i].likes;
+  var acumulador =0;
+  for (var i=0; i<usuario.posts.length; i++) {
+    acumulador = acumulador + usuario.posts[i].likes;
   }
-  return suma;
+  return acumulador;
 }
 
 function agregarMetodoCalculoDescuento(producto) {
@@ -158,7 +149,9 @@ function agregarMetodoCalculoDescuento(producto) {
   // producto.porcentajeDeDescuento -> 0.2 (o simplemente ".2")
   // producto.calcularPrecioDescuento() -> 20 - (20 * 0.2)
   // Tu código:
-   producto.calcularPrecioDescuento = producto.precio - [producto.precio * producto.porcentajeDeDescuento];
+   producto.calcularPrecioDescuento = function (){
+    return producto.calcularPrecioDescuento = producto.precio - [producto.precio * producto.porcentajeDeDescuento];
+   }
    return producto;
 }
 
