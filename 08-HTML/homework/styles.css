@@ -1,0 +1,17 @@
+h1{
+    color:rgb(255, 0, 170);
+}
+img{
+    width: 300px;
+}
+#thirDiv{
+    height: 400px;
+    width: 400px;
+    background-color: aquamarine;
+    padding: 100px;
+    border: 10px solid rgb(68, 68, 110);
+}
+#spanId{
+    font-size: 18px;
+    margin: 15px;
+}
