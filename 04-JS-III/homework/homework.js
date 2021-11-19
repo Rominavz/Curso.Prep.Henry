@@ -26,11 +26,10 @@ function incrementarPorUno(array) {
   // Aumenta cada entero por 1
   // y devuelve el array
   // Tu código:
-  var nuevoarray=[];
-  for (var i = 0; i<array.length;i++){
-    nuevoarray[i] = array[i] + 1;
+   for (var i = 0; i<array.length; i++){
+    array[i] = array[i] + 1;
   } 
-  return nuevoarray;
+  return array;
 }
 
 
@@ -38,8 +37,8 @@ function agregarItemAlFinalDelArray(array, elemento) {
   // Añade el "elemento" al final del array
   // y devuelve el array
   // Tu código:
-    array [array.length] = elemento;
-  return array;
+    array [array.length] = elemento;   //array.push(elemento)
+  return array;                        //return array
 }
 
 
@@ -67,7 +66,7 @@ function arrayContiene(array, elemento) {
   // Comprueba si el elemento existe dentro de "array"
   // Devuelve "true" si está, o "false" si no está
   // Tu código:
-  for (var i=0; i<array.length;i++){
+  for (var i=0; i<array.length; i++){
     if (array[i] === elemento){
       return true;
     } 
@@ -92,7 +91,7 @@ function promedioResultadosTest(resultadosTest) {
   // "resultadosTest" debe ser una matriz de enteros (int/integers)
   // Itera (en un bucle) los elementos del array, calcula y devuelve el promedio de puntajes
   // Tu código:
-     return agregarNumeros (resultadosTest) / resultadosTest.length;
+     return agregarNumeros (resultadosTest) / resultadosTest.length;  //llamo a la funcion agregar numeros q anteriormente hice y lo q hacia era sumar todo, leugo le coloco el argumento resultadostest
 }
 
 
@@ -148,13 +147,21 @@ function empiezaConNueve(n) {
   //Desarrolle una función que recibe como parámetro un número entero n. Debe retornar true si el entero 
   //inicia con 9 y false en otro caso.
   //Escribe tu código aquí
-      let num = n.toString()
-      if (num.charAt(0) === '9'){
+      let num = n.toString()    //convierto el num en texto para poder recorrerlo
+      if (num.charAt(0) === '9'){       //tb podria poner if(num[0]==='9')
         return true;
       }
         return false;
   }
 
+  function todosIguales(arreglo){
+    for (var i=0; i<arreglo.length-1; i++){  //-1 porque el arreglo i+1 se iria del arreglo
+      if (arreglo[i]!==arreglo[i+1]){
+        return false;
+      }
+    }   
+       return true;
+  }
 
 function mesesDelAño(array) {
   //Dado un array que contiene algunos meses del año desordenados, recorrer el array buscando los meses de 
@@ -200,18 +207,19 @@ function breakStatement(numero) {
   // Tu código:
   var array =[];
   var i=0;
-  do{
-    i=i+1;
-    numero[i]= i+2;
-    array.push(numero[i]);
+
+  for (var i=0; i<10; i++){
+    i = i+2;
+    array.push(i);
   }
-  while (i<10);
-  if (i+2 ===i){
-    return 'Se interrumpio la ejecucion';
+    if (i+2 ===i){
     break;
+  } 
+    if (i<10){
+    return "Se interrumpió la ejecución";
   }
   return array;
-  }
+  };
 
 
 
@@ -222,6 +230,15 @@ function continueStatement(numero) {
   //Cuando el número de iteraciones alcance el valor 5, no se suma en ese caso y se continua con la siguiente iteración
   //Pista: usá el statement 'continue'
   // Tu código:
+  var nuevoarray = [];
+  var suma = numero;  //le asigno otra vble para no modicar lo q haya adentro de numero(es una buena practica)
+
+  for (var i=0; i<10; i++){
+    if (suma === i) continue;   //es decir no se va a romper va a continuar con la otra posicion
+    suma = suma+2;
+    nuevoarray.push(suma)
+  }
+   return nuevoarray;
 }
 
 
