@@ -62,7 +62,10 @@ function filter(array) {
 })
   return newarray;
 }
-
+  // let resultado = array.filter(function(elementos){
+  // return elementos[0] === 'a'
+  // });
+  // return resultado;
 
 
 // No modificar nada debajo de esta línea
