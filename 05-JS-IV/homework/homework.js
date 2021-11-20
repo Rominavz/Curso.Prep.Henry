@@ -114,7 +114,7 @@ function agregarAmigo(usuario, nuevoAmigo) {
 }
 
 function pasarUsuarioAPremium(usuarios) {
-  // "usuarios" es un array de objetos "usuario"
+  // "usuarios" es un array de objetos "usuario" usuario[{}{}]
   // Cada objeto "usuario" tiene la propiedad "esPremium"
   // Define cada propiedad "esPremium" de cada objeto como "true"
   // Devuelve el array de usuarios
